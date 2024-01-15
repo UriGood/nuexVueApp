@@ -7,7 +7,7 @@ const isOpen = ref(false);
     class="container mx-auto justify-center items-center flex"
     style="height: 100vh"
   >
-    <div class="login text-center bg-white py-5 px-8 rounded-lg drop-shadow">
+    <div class="login text-center bg-white py-5 px-8 rounded-lg drop-shadow w-1/3">
       <h1 class="text-2xl font-bold">Bienvenido</h1>
       <p class="text-xs my-2">Ingresa tu correo electronico y tu contraseña</p>
 

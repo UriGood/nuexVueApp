@@ -7,7 +7,10 @@ export interface evaluation {
     phone: string,
     progress: progressType,
     status: StatusCards,
-    icon: string
+    icon: string,
+    email:string,
+    rfc: string,
+    address: string
 } 
 
 export interface progressType {

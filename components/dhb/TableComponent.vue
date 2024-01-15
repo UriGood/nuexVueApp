@@ -1,15 +1,17 @@
 <script lang="ts" setup>
 import { evaluations } from "../../data/evaluations.data";
-import type { evaluation } from '../../interfaces/evaluation.type'
-import tableStatus from '../../components/dhb/TableStatus.vue'
-import { StatusCards } from '../../interfaces/status.cards.type'
-import progressComponent from '../dhb/progressComponent.vue'
-import type{ progressType } from '../../interfaces/evaluation.type'
+import type { evaluation } from "../../interfaces/evaluation.type";
+import tableStatus from "../../components/dhb/TableStatus.vue";
+import { StatusCards } from "../../interfaces/status.cards.type";
+import progressComponent from "../dhb/progressComponent.vue";
+import type { progressType } from "../../interfaces/evaluation.type";
+import modalComponent from "./modalComponent.vue";
 
+let isOpenModal = ref(false);
 let evaluationsUser = ref(evaluations);
-let inputValue = ref('');
+let inputValue = ref("");
 let filteredEvaluations: evaluation[] = [];
-
+let dataUser = ref({});
 function writing() {
   filteredEvaluations = [];
   let textInput: string = inputValue.value?.toLowerCase() || "";
@@ -19,19 +21,27 @@ function writing() {
   if (inputValue.value == "") return (evaluationsUser.value = evaluations);
 
   if (inputValue.value != "") {
-    let evalFilter:evaluation[] = evaluations as evaluation[];
-    filteredByName = evalFilter.filter(({ name, status, phone, progress, date, _id }) =>{
-      return name.toLowerCase().includes(textInput) 
-      || status.toLowerCase().includes(textInput) 
-      || phone.toLowerCase().includes(textInput) 
-      || progress.category.toLowerCase().includes(textInput)
-      || date.toLowerCase().includes(textInput) 
-      || _id.toString().includes(textInput)
-    });
-    
+    let evalFilter: evaluation[] = evaluations as evaluation[];
+    filteredByName = evalFilter.filter(
+      ({ name, status, phone, progress, date, _id }) => {
+        return (
+          name.toLowerCase().includes(textInput) ||
+          status.toLowerCase().includes(textInput) ||
+          phone.toLowerCase().includes(textInput) ||
+          progress.category.toLowerCase().includes(textInput) ||
+          date.toLowerCase().includes(textInput) ||
+          _id.toString().includes(textInput)
+        );
+      }
+    );
+
     filteredEvaluations.push(...filteredByName);
     evaluationsUser.value = filteredEvaluations;
   }
+}
+function prepareModal(data:evaluation) {
+  isOpenModal.value = true;
+  dataUser.value = data;
 }
 </script>
 
@@ -67,36 +77,32 @@ function writing() {
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="{
-            _id,
-            date,
-            name,
-            icon,
-            phone,
-            status,
-            progress,
-          } in evaluationsUser"
-          :key="_id"
-        >
-          <td class="py-3">{{ _id }}</td>
-          <td>{{ date }}</td>
-          <td>{{ name }}</td>
-          <td>{{ phone }}</td>
-          <td> 
-            <progressComponent :pgrs="(progress as progressType)"/>
-           </td>
-          <td><tableStatus :status="(status as StatusCards)"/> </td>
-          <td> Ver <br/> editar </td>
-          
+        <tr v-for="item in evaluationsUser" :key="item._id">
+          <td class="py-3">{{ item._id }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.phone }}</td>
+          <td>
+            <progressComponent :pgrs="(item.progress as progressType)" />
+          </td>
+          <td><tableStatus :status="(item.status as StatusCards)" /></td>
+          <td>
+            <span @click="prepareModal(item as evaluation)" class="cursor-pointer">Ver</span>
+            
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
+  <modalComponent
+    :isOpen="isOpenModal"
+    @is-open="isOpenModal = false"
+    :data-user="dataUser"
+  ></modalComponent>
 </template>
 
 <style scoped>
-td{
+td {
   font-size: 0.75rem;
 }
 </style>
