@@ -13,7 +13,7 @@
 <template>
   <!-- :class="{ `${ ht }` : $props.height }" -->
   <svg
-    class="text-red-500"
+    style="color:rgb(239 68 68)"
     :class="[wh,ht]"
     viewBox="0 0 24 24"
     fill="none"

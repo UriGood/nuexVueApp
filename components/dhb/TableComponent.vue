@@ -83,7 +83,9 @@ function writing() {
           <td>{{ date }}</td>
           <td>{{ name }}</td>
           <td>{{ phone }}</td>
-          <td> <progressComponent :progress="progress"/> </td>
+          <td> 
+            <progressComponent :pgrs="(progress as progressType)"/>
+           </td>
           <td><tableStatus :status="(status as StatusCards)"/> </td>
           <td> Ver <br/> editar </td>
           

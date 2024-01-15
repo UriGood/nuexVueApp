@@ -13,7 +13,7 @@
 
 <template>
   <svg
-    class="text-blue-500"
+    style="color: rgb(59 130 246 )"
     :class="[wh,ht]"
     viewBox="0 0 24 24"
     fill="none"

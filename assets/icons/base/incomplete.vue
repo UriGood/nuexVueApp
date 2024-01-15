@@ -12,7 +12,7 @@
 </script>
 <template>
   <svg
-    class="text-yellow-500"
+    style="color:rgb(234 179 8)"
     :class="[ht,wh]"
     width="24"
     height="24"

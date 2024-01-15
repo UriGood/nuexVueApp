@@ -12,7 +12,7 @@
 </script>
 <template>
   <svg
-    class="text-green-500"
+    style="color: rgb(34 197 94);"
     :class="[wh, ht]"
     viewBox="0 0 24 24"
     fill="none"

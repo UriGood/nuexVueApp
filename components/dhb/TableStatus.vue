@@ -31,6 +31,7 @@ let statusNoFitTheProfile = ref(props.status == StatusCards.NoFitTheProfile ? tr
     <span v-if="statusNoFitTheProfile"><noAcept></noAcept></span> 
     &nbsp;
     &nbsp;
+
     <p>{{ $props.status }}</p>
   </div>
 </template>

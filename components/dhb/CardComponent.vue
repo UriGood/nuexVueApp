@@ -3,7 +3,7 @@ import type { percentOne, percentTwo } from '../../interfaces/percents.type'
 import user from '../../assets/icons/user.vue'
 import noAcept from '../../assets/icons/noAcept.vue'
 import fails from '../../assets/icons/fails.vue'
-import imcomplete from '../../assets/icons/incomplete.vue'
+import incomplete from '../../assets/icons/incomplete.vue'
 import { StatusCards } from '~/interfaces/status.cards.type'
   defineProps<{
     percentOne: percentOne,
@@ -17,7 +17,7 @@ import { StatusCards } from '~/interfaces/status.cards.type'
     
     <span v-if="$props.typeEvaluation == StatusCards.ApprovedEvaluation"><user></user></span>
     <span v-if="$props.typeEvaluation == StatusCards.NotAcceptOffer"><noAcept></noAcept></span>
-    <span v-if="$props.typeEvaluation == StatusCards.IncompleteEvaluation"><imcomplete></imcomplete></span>
+    <span v-if="$props.typeEvaluation == StatusCards.IncompleteEvaluation"><incomplete></incomplete></span>
     <span v-if="$props.typeEvaluation == StatusCards.NoFitTheProfile"><fails></fails></span>
 
     <p class="text-xs my-1">{{ $props.typeEvaluation }}</p>
