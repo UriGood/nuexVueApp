@@ -1,7 +1,18 @@
 <template>
   <div>
-    <NavBar />
+    <!-- <NavBarComponent /> -->
     <NuxtPage />
-    <Footer />
+    <!-- <FooterComponent /> -->
   </div>
 </template>
+
+<style>
+body{
+  background-color: #f2f2f2;
+} 
+
+.activated{
+  color:#63A532;
+}
+
+</style>
