@@ -1,6 +1,7 @@
 <script setup lang="ts">
-    
+const isOpen = ref(false);
 </script>
+
 <template>
   <div
     class="container mx-auto justify-center items-center flex"
@@ -30,11 +31,15 @@
         />
       </label>
 
-      <button
-        class="p-3 rounded-3xl w-full bg-gray-300 hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:ring focus:ring-gray-300 "
-      >
-        Ingresar
-      </button>
+      <nuxtLink to="/">
+        <button
+          class="p-3 rounded-3xl w-full bg-gray-300 hover:bg-gray-400 active:bg-gray-500 focus:outline-none focus:ring focus:ring-gray-300"
+        >
+          Ingresar
+        </button>
+      </nuxtLink>
+
+     
     </div>
   </div>
 </template>

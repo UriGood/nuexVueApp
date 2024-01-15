@@ -3,6 +3,8 @@ import { evaluations } from "../../data/evaluations.data";
 import type { evaluation } from '../../interfaces/evaluation.type'
 import tableStatus from '../../components/dhb/TableStatus.vue'
 import { StatusCards } from '../../interfaces/status.cards.type'
+import progressComponent from '../dhb/progressComponent.vue'
+import type{ progressType } from '../../interfaces/evaluation.type'
 
 let evaluationsUser = ref(evaluations);
 let inputValue = ref('');
@@ -22,7 +24,7 @@ function writing() {
       return name.toLowerCase().includes(textInput) 
       || status.toLowerCase().includes(textInput) 
       || phone.toLowerCase().includes(textInput) 
-      || progress.toString().includes(textInput)
+      || progress.category.toLowerCase().includes(textInput)
       || date.toLowerCase().includes(textInput) 
       || _id.toString().includes(textInput)
     });
@@ -81,8 +83,9 @@ function writing() {
           <td>{{ date }}</td>
           <td>{{ name }}</td>
           <td>{{ phone }}</td>
-          <td>{{ progress }}</td>
+          <td> <progressComponent :progress="progress"/> </td>
           <td><tableStatus :status="(status as StatusCards)"/> </td>
+          <td> Ver <br/> editar </td>
           
         </tr>
       </tbody>

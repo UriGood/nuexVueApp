@@ -5,7 +5,12 @@ export interface evaluation {
     date: string,
     name: string,
     phone: string,
-    progress: number,
+    progress: progressType,
     status: StatusCards,
     icon: string
 } 
+
+export interface progressType {
+    category: string,
+    progress: number
+}
