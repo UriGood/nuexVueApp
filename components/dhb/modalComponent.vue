@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 <template>
   <div class="modal-overlay z-50" v-if="props.isOpen">
-    <div class="modal text-left">
+    <div class="modal text-left h-96 lg:h-auto overflow-scroll">
       
       <div class="header text-left bg-gray-300 rounded-lg flex">
         <div :class="{'bg-white': true}">General</div> 
@@ -26,60 +26,60 @@ const props = defineProps({
         <tableStatus :status="(dataModal.status as StatusCards)"></tableStatus>
       </div>
 
-      <div class="p-10 pt-2">
-        <h6 class="text-left">Informacion personal</h6>
+      <div class="p-10 pt-2 mt-14 sm:mt-0">
+        <h6 class="text-left text-lg sm:text-2xl">Informacion personal</h6>
 
         <div class="grid grid-cols-12 grid-rows-3">
-          <p class="col-span-1">Nombre:</p>
-          <p class="col-span-3">
+          <p class="col-span-6 lg:col-span-1">Nombre:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>{{ dataModal.name }}</strong>
           </p>
-          <p class="col-span-1">Celular:</p>
-          <p class="col-span-3">
+          <p class="col-span-6 lg:col-span-1">Celular:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>{{ dataModal.phone }}</strong>
           </p>
-          <p class="col-span-4"></p>
-          <p class="col-span-1">Fecha nacimiento:</p>
-          <p class="col-span-3">
+          <p class="col-span-12 lg:col-span-4"></p>
+          <p class="col-span-6 lg:col-span-1">Fecha nacimiento:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>{{ dataModal.date }}</strong>
           </p>
-          <p class="col-span-1">Correo:</p>
-          <p class="col-span-3">
+          <p class="col-span-6 lg:col-span-1">Correo:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>{{ dataModal.email }}</strong>
           </p>
-          <p class="col-span-4"></p>
-          <p class="col-span-1">RFC:</p>
-          <p class="col-span-3">
+          <p class="col-span-12 lg:col-span-4"></p>
+          <p class="col-span-6 lg:col-span-1">RFC:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>{{ dataModal.rfc }}</strong>
           </p>
-          <p class="col-span-1">Dirección:</p>
-          <p class="col-span-3">
+          <p class="col-span-6 lg:col-span-1">Dirección:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>{{ dataModal.address }}</strong>
           </p>
         </div>
 
-        <hr />
+        <hr class="mt-5 mb-5"/>
 
         <div class="grid grid-cols-12 grid-rows-3 my-5">
-          <p class="col-span-1">Produto:</p>
-          <p class="col-span-3"><strong> Electrónico</strong></p>
-          <p class="col-span-1">Estado</p>
-          <p class="col-span-3"><strong> Nuevo León </strong></p>
-          <p class="col-span-4"></p>
-          <p class="col-span-1">Sub Producto: &nbsp; &nbsp; &nbsp;</p>
-          <p class="col-span-3"><strong>IMSS</strong></p>
-          <p class="col-span-1">Banco:</p>
-          <p class="col-span-3"><strong>Banorte</strong></p>
-          <p class="col-span-4"></p>
-          <p class="col-span-1">Tipo Nómina</p>
-          <p class="col-span-3"><strong>Jubilado</strong></p>
-          <p class="col-span-1">Sucursal:</p>
-          <p class="col-span-3"><strong>Escobedo</strong></p>
-          <p class="col-span-4"></p>
-          <p class="col-span-1">Operación</p>
-          <p class="col-span-3"><strong>Crédito Nuevo</strong></p>
-          <p class="col-span-1">Promotor:</p>
-          <p class="col-span-3">
+          <p class="col-span-6 lg:col-span-1">Produto:</p>
+          <p class="col-span-6 lg:col-span-3"><strong> Electrónico</strong></p>
+          <p class="col-span-6 lg:col-span-1">Estado</p>
+          <p class="col-span-6 lg:col-span-3"><strong> Nuevo León </strong></p>
+          <p class="col-span-12 lg:col-span-4"></p>
+          <p class="col-span-6 lg:col-span-1">Sub Producto: &nbsp; &nbsp; &nbsp;</p>
+          <p class="col-span-6 lg:col-span-3"><strong>IMSS</strong></p>
+          <p class="col-span-6 lg:col-span-1">Banco:</p>
+          <p class="col-span-6 lg:col-span-3"><strong>Banorte</strong></p>
+          <p class="col-span-12 lg:col-span-4"></p>
+          <p class="col-span-6 lg:col-span-1">Tipo Nómina</p>
+          <p class="col-span-6 lg:col-span-3"><strong>Jubilado</strong></p>
+          <p class="col-span-6 lg:col-span-1">Sucursal:</p>
+          <p class="col-span-6 lg:col-span-3"><strong>Escobedo</strong></p>
+          <p class="col-span-12 lg:col-span-4"></p>
+          <p class="col-span-6 lg:col-span-1">Operación</p>
+          <p class="col-span-6 lg:col-span-3"><strong>Crédito Nuevo</strong></p>
+          <p class="col-span-6 lg:col-span-1">Promotor:</p>
+          <p class="col-span-6 lg:col-span-3">
             <strong>Pamela Cheves García (81 10375 28740)</strong>
           </p>
         </div>
@@ -146,7 +146,7 @@ p.col-span-6 {
 
 .modal {
   background-color: white;
-  height: auto;
+  /* height: auto; */
   width: 80%;
   /* padding: 20px 40px; */
   border-radius: 7px;

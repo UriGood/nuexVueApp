@@ -4,8 +4,10 @@
 <template>
   <NavBarComponent />
   <div class="container mx-auto mt-20">
-    <DhbHeaderComponent />
-    <div class="grid grid-cols-4 gap-4">
+    <div class="mx-4 lg:mx-0">
+      <DhbHeaderComponent />
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-4  gap-4 mx-4 lg:mx-0">
           <DhbCardComponent 
           :typeEvaluation='StatusCards.ApprovedEvaluation' 
           :percent-one="{ percent:'8%', detail:'con cita'}" 
@@ -24,8 +26,10 @@
           :typeEvaluation='StatusCards.NoFitTheProfile' 
           :percent-one="{ percent:'40%'}" />
     </div>
-    <div class="grid grid-cols-1 gap-4">
-        <DhbTableComponent />
+    <div class="grid grid-cols-1 gap-4  mx-4 lg:mx-0">
+        <div class="">
+          <DhbTableComponent />
+        </div>
     </div>
   </div>
 </template>

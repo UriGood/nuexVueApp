@@ -13,14 +13,14 @@ import { StatusCards } from '~/interfaces/status.cards.type'
 </script>
 
 <template>
-  <div class="p-5 bg-white w-full rounded-md drop-shadow">
+  <div class="py-7 px-8 bg-white w-full rounded-md drop-shadow">
     
     <span v-if="$props.typeEvaluation == StatusCards.ApprovedEvaluation"><user></user></span>
     <span v-if="$props.typeEvaluation == StatusCards.NotAcceptOffer"><noAcept></noAcept></span>
     <span v-if="$props.typeEvaluation == StatusCards.IncompleteEvaluation"><incomplete></incomplete></span>
     <span v-if="$props.typeEvaluation == StatusCards.NoFitTheProfile"><fails></fails></span>
 
-    <p class="text-xs my-1">{{ $props.typeEvaluation }}</p>
+    <p class="text-xl sm:text-xs my-2 sm:my-1">{{ $props.typeEvaluation }}</p>
     <p> 
       <span class="text-2xl font-bold">{{ $props.percentOne?.percent }}</span> <span class="text-xs"> {{ $props.percentOne?.detail }} </span>
       <span v-if="$props.percentTwo" class="text-2xl "> | </span>
