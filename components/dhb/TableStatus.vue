@@ -24,7 +24,7 @@ let statusNoFitTheProfile = ref(props.status == StatusCards.NoFitTheProfile ? tr
     'bg-incomplete' : statusIncompleteEvaluation,
     'bg-not-profile' : statusNoFitTheProfile
   }"
-  class="flex items-center w-full sm:w-4/6">
+  class="flex items-center " style="width: 200px;">
     <span v-if="statusApprovedEvaluation"><user></user></span>
     <span v-if="statusNotAcceptOffer"><fails></fails></span>
     <span v-if="statusIncompleteEvaluation"><incomplete></incomplete></span>

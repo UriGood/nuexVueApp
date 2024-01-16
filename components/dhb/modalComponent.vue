@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import tableStatus from "../../components/dhb/TableStatus.vue";
+import { StatusCards } from "../../interfaces/status.cards.type";
 const props = defineProps({
   isOpen: Boolean,
   dataUser: Object,
@@ -7,75 +9,105 @@ const props = defineProps({
 <template>
   <div class="modal-overlay z-50" v-if="props.isOpen">
     <div class="modal text-left">
-      <div class="header text-left">General | Oferta comercial</div>
-      <h6 class="text-left">Informacion personal</h6>
-
-      <div class="grid grid-cols-12 grid-rows-3">
-        <p class="col-span-1">Nombre:</p>
-        <p class="col-span-3">
-          <strong>{{ props.dataUser?.name }}</strong>
-        </p>
-        <p class="col-span-1">Celular:</p>
-        <p class="col-span-3">
-          <strong>{{ props.dataUser?.phone }}</strong>
-        </p>
-        <p class="col-span-4"></p>
-        <p class="col-span-1">Fecha nacimiento:</p>
-        <p class="col-span-3">
-          <strong>{{ props.dataUser?.date }}</strong>
-        </p>
-        <p class="col-span-1">Correo:</p>
-        <p class="col-span-3">
-          <strong>{{ props.dataUser?.email }}</strong>
-        </p>
-        <p class="col-span-4"></p>
-        <p class="col-span-1">RFC:</p>
-        <p class="col-span-3">
-          <strong>{{ props.dataUser?.rfc }}</strong>
-        </p>
-        <p class="col-span-1">Dirección:</p>
-        <p class="col-span-3">
-          <strong>{{ props.dataUser?.address }}</strong>
-        </p>
+      
+      <div class="header text-left bg-gray-300 rounded-lg flex">
+        <div :class="{'bg-white': true}">General</div> 
+        <div>Oferta comercial</div>
       </div>
 
-      <hr />
-
-      <div class="grid grid-cols-12 grid-rows-3 my-5">
-        <p class="col-span-1">Produto:</p>
-        <p class="col-span-3"><strong> Electrónico</strong></p>
-        <p class="col-span-1">Estado</p>
-        <p class="col-span-3"><strong> Nuevo León </strong></p>
-        <p class="col-span-4"></p>
-        <p class="col-span-1">Sub Producto: &nbsp; &nbsp; &nbsp;</p>
-        <p class="col-span-3"><strong>IMSS</strong></p>
-        <p class="col-span-1">Banco:</p>
-        <p class="col-span-3"><strong>Banorte</strong></p>
-        <p class="col-span-4"></p>
-        <p class="col-span-1">Tipo Nómina</p>
-        <p class="col-span-3"><strong>Jubilado</strong></p>
-        <p class="col-span-1">Sucursal:</p>
-        <p class="col-span-3"><strong>Escobedo</strong></p>
-        <p class="col-span-4"></p>
-        <p class="col-span-1">Operación</p>
-        <p class="col-span-3"><strong>Crédito Nuevo</strong></p>
-        <p class="col-span-1">Promotor:</p>
-        <p class="col-span-3">
-          <strong>Pamela Cheves García (81 10375 28740)</strong>
-        </p>
+      <div class="offer">
+        {{ props.dataUser!.progress.category }}
+        |
+        Cita agendada
+        <tableStatus :status="(dataUser!.status as StatusCards)"></tableStatus>
       </div>
 
-      <div class="text-right" @click="$emit('isOpen', false)">
-        <button>Cerrar</button>
-      </div>
+      <div class="p-10 pt-2">
+        <h6 class="text-left">Informacion personal</h6>
 
-      <div class="close" @click="$emit('isOpen', false)">
-        <p class="text-2xl"></p>
+        <div class="grid grid-cols-12 grid-rows-3">
+          <p class="col-span-1">Nombre:</p>
+          <p class="col-span-3">
+            <strong>{{ props.dataUser?.name }}</strong>
+          </p>
+          <p class="col-span-1">Celular:</p>
+          <p class="col-span-3">
+            <strong>{{ props.dataUser?.phone }}</strong>
+          </p>
+          <p class="col-span-4"></p>
+          <p class="col-span-1">Fecha nacimiento:</p>
+          <p class="col-span-3">
+            <strong>{{ props.dataUser?.date }}</strong>
+          </p>
+          <p class="col-span-1">Correo:</p>
+          <p class="col-span-3">
+            <strong>{{ props.dataUser?.email }}</strong>
+          </p>
+          <p class="col-span-4"></p>
+          <p class="col-span-1">RFC:</p>
+          <p class="col-span-3">
+            <strong>{{ props.dataUser?.rfc }}</strong>
+          </p>
+          <p class="col-span-1">Dirección:</p>
+          <p class="col-span-3">
+            <strong>{{ props.dataUser?.address }}</strong>
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="grid grid-cols-12 grid-rows-3 my-5">
+          <p class="col-span-1">Produto:</p>
+          <p class="col-span-3"><strong> Electrónico</strong></p>
+          <p class="col-span-1">Estado</p>
+          <p class="col-span-3"><strong> Nuevo León </strong></p>
+          <p class="col-span-4"></p>
+          <p class="col-span-1">Sub Producto: &nbsp; &nbsp; &nbsp;</p>
+          <p class="col-span-3"><strong>IMSS</strong></p>
+          <p class="col-span-1">Banco:</p>
+          <p class="col-span-3"><strong>Banorte</strong></p>
+          <p class="col-span-4"></p>
+          <p class="col-span-1">Tipo Nómina</p>
+          <p class="col-span-3"><strong>Jubilado</strong></p>
+          <p class="col-span-1">Sucursal:</p>
+          <p class="col-span-3"><strong>Escobedo</strong></p>
+          <p class="col-span-4"></p>
+          <p class="col-span-1">Operación</p>
+          <p class="col-span-3"><strong>Crédito Nuevo</strong></p>
+          <p class="col-span-1">Promotor:</p>
+          <p class="col-span-3">
+            <strong>Pamela Cheves García (81 10375 28740)</strong>
+          </p>
+        </div>
+
+        <div class="text-right" @click="$emit('isOpen', false)">
+          <button>Cerrar</button>
+        </div>
+
+        <div class="close" @click="$emit('isOpen', false)">
+          <p class="text-2xl"></p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
+.offer{
+  padding: 0.8rem;
+  width: 250px;
+  font-size: 0.8rem;
+  position: absolute;
+  right: 0;
+}
+.header > div{
+  padding: 10px 10px;
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  color: rgb(15, 104, 48);
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .col-span-1,
 .col-span-2,
 .col-span-3,
@@ -110,9 +142,9 @@ p.col-span-6 {
 
 .modal {
   background-color: white;
-  height: 500px;
+  height: auto;
   width: 80%;
-  padding: 20px 40px;
+  /* padding: 20px 40px; */
   border-radius: 7px;
   position: relative;
 }
@@ -160,12 +192,12 @@ p {
 }
 
 button {
-  background-color: rgb(34 197 94);
-  width: 150px;
+  background-color: rgb(59, 135, 87);
+  width: 80px;
   height: 40px;
   color: white;
   font-size: 14px;
-  border-radius: 16px;
+  border-radius: 8px;
   margin-top: 10px;
 }
 </style>
