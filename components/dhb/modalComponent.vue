@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 <template>
   <div class="modal-overlay z-50" v-if="props.isOpen">
-    <div class="modal text-left h-96 lg:h-auto overflow-scroll">
+    <div class="modal text-left h-96 lg:h-auto  overflow-scroll lg:overflow-auto">
       
       <div class="header text-left bg-gray-300 rounded-lg flex">
         <div :class="{'bg-white': true}">General</div> 

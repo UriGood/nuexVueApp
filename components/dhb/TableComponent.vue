@@ -93,7 +93,11 @@ function prepareModal(data: evaluation) {
               <span
                 @click="prepareModal(item as evaluation)"
                 class="cursor-pointer"
-                >Ver</span
+                >
+                <icon name="bi:eye-fill" color="gray" size="20"/>
+                &nbsp;
+                <icon name="bi:pencil-square" color="gray" size="20"/>
+                </span
               >
             </td>
           </tr>
