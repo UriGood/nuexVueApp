@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import tableStatus from "../../components/dhb/TableStatus.vue";
 import { StatusCards } from "../../interfaces/status.cards.type";
+import { useCounterStore } from '../../stores/user.store'
+import { storeToRefs } from 'pinia';
+const store = useCounterStore()
+const { dataModal } = storeToRefs(store)
+
 const props = defineProps({
   isOpen: Boolean,
-  dataUser: Object,
 });
 </script>
 <template>
@@ -16,10 +20,10 @@ const props = defineProps({
       </div>
 
       <div class="offer">
-        {{ props.dataUser!.progress.category }}
+        {{ dataModal.progress.category }}
         |
         Cita agendada
-        <tableStatus :status="(dataUser!.status as StatusCards)"></tableStatus>
+        <tableStatus :status="(dataModal.status as StatusCards)"></tableStatus>
       </div>
 
       <div class="p-10 pt-2">
@@ -28,29 +32,29 @@ const props = defineProps({
         <div class="grid grid-cols-12 grid-rows-3">
           <p class="col-span-1">Nombre:</p>
           <p class="col-span-3">
-            <strong>{{ props.dataUser?.name }}</strong>
+            <strong>{{ dataModal.name }}</strong>
           </p>
           <p class="col-span-1">Celular:</p>
           <p class="col-span-3">
-            <strong>{{ props.dataUser?.phone }}</strong>
+            <strong>{{ dataModal.phone }}</strong>
           </p>
           <p class="col-span-4"></p>
           <p class="col-span-1">Fecha nacimiento:</p>
           <p class="col-span-3">
-            <strong>{{ props.dataUser?.date }}</strong>
+            <strong>{{ dataModal.date }}</strong>
           </p>
           <p class="col-span-1">Correo:</p>
           <p class="col-span-3">
-            <strong>{{ props.dataUser?.email }}</strong>
+            <strong>{{ dataModal.email }}</strong>
           </p>
           <p class="col-span-4"></p>
           <p class="col-span-1">RFC:</p>
           <p class="col-span-3">
-            <strong>{{ props.dataUser?.rfc }}</strong>
+            <strong>{{ dataModal.rfc }}</strong>
           </p>
           <p class="col-span-1">Dirección:</p>
           <p class="col-span-3">
-            <strong>{{ props.dataUser?.address }}</strong>
+            <strong>{{ dataModal.address }}</strong>
           </p>
         </div>
 

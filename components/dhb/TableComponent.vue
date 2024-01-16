@@ -6,18 +6,21 @@ import { StatusCards } from "../../interfaces/status.cards.type";
 import progressComponent from "../dhb/progressComponent.vue";
 import type { progressType } from "../../interfaces/evaluation.type";
 import modalComponent from "./modalComponent.vue";
+import { useCounterStore } from '../../stores/user.store'
+
+const store = useCounterStore()
+const { setDataModal } = store;
 
 let isOpenModal = ref(false);
 let evaluationsUser = ref(evaluations);
 let inputValue = ref("");
 let filteredEvaluations: evaluation[] = [];
-let dataUser = ref({});
+
 function writing() {
   filteredEvaluations = [];
   let textInput: string = inputValue.value?.toLowerCase() || "";
   let filteredByName: evaluation[];
 
-  //LLena el array si el campo es vacio
   if (inputValue.value == "") return (evaluationsUser.value = evaluations);
 
   if (inputValue.value != "") {
@@ -39,9 +42,10 @@ function writing() {
     evaluationsUser.value = filteredEvaluations;
   }
 }
+
 function prepareModal(data:evaluation) {
   isOpenModal.value = true;
-  dataUser.value = data;
+  setDataModal(data);
 }
 </script>
 
@@ -97,8 +101,7 @@ function prepareModal(data:evaluation) {
   <modalComponent
     :isOpen="isOpenModal"
     @is-open="isOpenModal = false"
-    :data-user="dataUser"
-  ></modalComponent>
+    ></modalComponent>
 </template>
 
 <style scoped>
