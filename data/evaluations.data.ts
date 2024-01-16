@@ -77,7 +77,7 @@ export const evaluations = [
   {
     _id: 7,
     date: "05/07/2023",
-    name: "Oscar Garcia Cruz",
+    name: "Pedro Garcia Cruz",
     phone: "+52 8172451934",
     progress: { category: 'Autorización buro', progress: 2 },
     status: "Evaluación Aprobada",
@@ -101,7 +101,7 @@ export const evaluations = [
   {
     _id: 9,
     date: "05/07/2023",
-    name: "Cecilia Yesica Lopez",
+    name: "Celia Jesica Juarez",
     phone: "+52 8173165987",
     progress: { category: 'Autorización buro', progress: 5 },
     status: "Evaluación Incompleta",

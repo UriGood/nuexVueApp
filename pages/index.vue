@@ -9,7 +9,7 @@
       class="login text-center bg-white py-5 px-8 rounded-lg drop-shadow w-full sm:w-1/3 mx-3"
     >
       <h1 class="text-2xl font-bold">Bienvenido</h1>
-      <p class="text-xs my-2">Ingresa tu correo electronico y tu contraseña</p>
+      <p class="text-xs my-2">Ingresa un correo electronico y una contraseña, luego da click en ingresar, para entrar al dashboard.</p>
 
       <label class="block my-5">
         <span class="block text-left text-sm font-medium text-slate-700"

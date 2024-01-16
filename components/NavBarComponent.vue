@@ -5,9 +5,13 @@
     >
       <img src="../assets/logo.png" alt="logo" class="logo" />
       <div class="flex justify-center">
-        <h1>Dashboard</h1>
+        <h1 class="cursor-pointer">Dashboard</h1>
         &nbsp;
-        <h1>Configuración</h1>
+        &nbsp;
+        <div class="flex items-center cursor-pointer">
+          <icon name="material-symbols:settings-outline"></icon>
+          <h1>Configuración</h1>
+        </div>
       </div>
       <div class="flex">
         <img src="../assets/logo.png" class="w-10 h-8 p-1" alt="" />
