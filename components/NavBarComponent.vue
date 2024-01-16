@@ -13,13 +13,20 @@
           <h1>Configuración</h1>
         </div>
       </div>
-      <div class="flex">
+      <div class="flex items-center">
         <img src="../assets/logo.png" class="w-10 h-8 p-1" alt="" />
         <div>
           <p class="text-sm">Juan Pedro</p>
           <p class="text-xs">Admin</p>
         </div>
-        <div>*</div>
+        <div class="cursor-pointer">
+          <icon name="material-symbols:arrow-drop-down" color="gray"></icon>
+        </div>
+        <div class="cursor-pointer">
+          <nuxtLink to="/">
+          <icon name="material-symbols:account-circle-off" size="25" color="gray"></icon>
+          </nuxtLink>
+        </div>
       </div>
     </div>
   </div>
