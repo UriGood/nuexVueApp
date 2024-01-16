@@ -4,7 +4,7 @@
       class="bg-white py-2 px-8 flex items-center justify-between mb-5 shadow-md"
     >
       <img src="../assets/logo.png" alt="logo" class="logo" />
-      <div class="flex justify-center">
+      <div class="hidden md:flex justify-center ">
         <h1 class="cursor-pointer">Dashboard</h1>
         &nbsp;
         &nbsp;
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="flex items-center">
-        <img src="../assets/logo.png" class="w-10 h-8 p-1" alt="" />
+        <img src="../assets/logo.png" class="w-10 h-7 p-1" alt="" />
         <div>
           <p class="text-sm">Juan Pedro</p>
           <p class="text-xs">Admin</p>
@@ -23,7 +23,7 @@
           <icon name="material-symbols:arrow-drop-down" color="gray"></icon>
         </div>
         <div class="cursor-pointer">
-          <nuxtLink to="/">
+          <nuxtLink :to="{name:'index'}">
           <icon name="material-symbols:account-circle-off" size="25" color="gray"></icon>
           </nuxtLink>
         </div>
@@ -35,6 +35,6 @@
 <style scoped>
 .logo {
   width: 50px;
-  height: 35px;
+  height: 30px;
 }
 </style>
