@@ -1,19 +1,24 @@
 <script setup lang="ts">
-  const props = withDefaults(defineProps<{
-    width?:string,
-    height?: string,
-  }>(), {
-    width:'w-5',
-    height: 'h-5'
-  });
-  
-  let wh = ref(`${props.width}`);
-  let ht = ref(`${props.height}`)
+const props = withDefaults(
+  defineProps<{
+    width?: string;
+    height?: string;
+  }>(),
+  {
+    width: 'w-5',
+    height: 'h-5',
+  }
+);
+
+let wh = ref(`${props.width}`);
+let ht = ref(`${props.height}`);
 </script>
 <template>
   <svg
-    style="color: rgb(34 197 94);"
-    :class="[wh, ht]"
+    style="color: rgb(34 197 94)"
+    :class="[ht, wh]"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"

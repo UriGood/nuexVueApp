@@ -14,7 +14,9 @@
 <template>
   <svg
     style="color: rgb(59 130 246 )"
-    :class="[wh,ht]"
+    :class="[ht,wh]"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
